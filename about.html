@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Terence & Theodore Model Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<style>
+
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2d1810 50%, #1a1a1a 75%, #0a0a0a 100%);
+      color: #f5f5f5;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Background Elements */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(218, 165, 32, 0.15), rgba(184, 134, 11, 0.08), rgba(139, 69, 19, 0.04));
+      animation: float 25s infinite ease-in-out;
+    }
+
+    .bg-orb:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      top: 20%;
+      left: 15%;
+    }
+
+    .bg-orb:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 60%;
+      right: 20%;
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(15px, -10px, 0); }
+    }
+
+    /* Services Section */
+    .services-section {
+      padding: 120px 50px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #2d1810 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.12) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .services-header {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .services-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      background: linear-gradient(135deg, #FFD700 0%, #FFFFFF 30%, #DAA520 70%, #FFD700 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .services-subtitle {
+      font-size: 1.2rem;
+      color: #cccccc;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* Simple Carousel */
+    .carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-card {
+      position: absolute;
+      width: 350px;
+      height: 450px;
+      background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+      border-radius: 20px;
+      padding: 40px 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.2);
+      transition: all 0.5s ease;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateX(400px) scale(0.8);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-card.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      border-color: rgba(255, 215, 0, 0.5);
+      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #FFD700, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card.active::before {
+      opacity: 1;
+    }
+
+    /* Card Content */
+    .service-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-right: 20px;
+      background: linear-gradient(135deg, #FFD700, #DAA520);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card.active .service-icon {
+      transform: scale(1.1);
+    }
+
+    .service-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      transition: color 0.3s ease;
+    }
+
+    .service-card.active .service-name {
+      color: #FFD700;
+    }
+
+    .service-description {
+      font-size: 1rem;
+      color: #cccccc;
+      line-height: 1.7;
+      font-weight: 300;
+      opacity: 0.9;
+      transition: color 0.3s ease;
+    }
+
+    .service-card.active .service-description {
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(218, 165, 32, 0.2);
+      border: 1px solid rgba(218, 165, 32, 0.4);
+      color: #FFD700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      z-index: 10;
+    }
+
+    .carousel-nav:hover {
+      background: rgba(255, 215, 0, 0.3);
+      border-color: #FFD700;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-nav.prev {
+      left: -500px;
+    }
+
+    .carousel-nav.next {
+      right: -500px;
+    }
+
+    /* Indicators */
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(218, 165, 32, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .indicator.active {
+      background: #FFD700;
+      transform: scale(1.2);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .services-section {
+        padding: 80px 20px;
+      }
+
+      .carousel-wrapper {
+        height: 400px;
+      }
+
+      .service-card {
+        width: 300px;
+        height: 380px;
+        padding: 30px 25px;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        margin-right: 15px;
+      }
+
+      .service-name {
+        font-size: 1.2rem;
+      }
+
+      .service-description {
+        font-size: 0.9rem;
+      }
+
+      .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .carousel-nav.prev {
+        left: -20px;
+      }
+
+      .carousel-nav.next {
+        right: -20px;
+      }
+    }
+
+        .tt-agency-reset * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .tt-agency-body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2d1810 50%, #1a1a1a 75%, #0a0a0a 100%);
+      color: #f5f5f5;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Background Elements */
+    .tt-agency-animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .tt-agency-bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(218, 165, 32, 0.15), rgba(184, 134, 11, 0.08), rgba(139, 69, 19, 0.04));
+      animation: tt-agency-float 25s infinite ease-in-out;
+    }
+
+    .tt-agency-bg-orb:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      top: 20%;
+      left: 15%;
+    }
+
+    .tt-agency-bg-orb:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 60%;
+      right: 20%;
+      animation-delay: 10s;
+    }
+
+    @keyframes tt-agency-float {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(15px, -10px, 0); }
+    }
+
+    /* Services Section */
+    .tt-agency-services-section {
+      padding: 120px 50px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #2d1810 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tt-agency-services-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.12) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .tt-agency-services-header {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tt-agency-services-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      background: linear-gradient(135deg, #FFD700 0%, #FFFFFF 30%, #DAA520 70%, #FFD700 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .tt-agency-services-subtitle {
+      font-size: 1.2rem;
+      color: #cccccc;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* Enhanced Carousel with Background Cards */
+    .tt-agency-carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tt-agency-carousel-wrapper {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .tt-agency-service-card {
+      position: absolute;
+      width: 350px;
+      height: 450px;
+      background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+      border-radius: 20px;
+      padding: 40px 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.2);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform-origin: center;
+    }
+
+    /* Active card (center) */
+    .tt-agency-service-card.tt-active {
+      opacity: 1;
+      transform: translateX(0) scale(1) translateZ(0);
+      border-color: rgba(255, 215, 0, 0.5);
+      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+      z-index: 10;
+    }
+
+    /* Previous card (left background) */
+    .tt-agency-service-card.tt-prev {
+      opacity: 0.4;
+      transform: translateX(-200px) scale(0.8) translateZ(0);
+      filter: blur(2px);
+      z-index: 5;
+    }
+
+    /* Next card (right background) */
+    .tt-agency-service-card.tt-next {
+      opacity: 0.4;
+      transform: translateX(200px) scale(0.8) translateZ(0);
+      filter: blur(2px);
+      z-index: 5;
+    }
+
+    /* Hidden cards */
+    .tt-agency-service-card.tt-hidden {
+      opacity: 0;
+      transform: translateX(400px) scale(0.6) translateZ(0);
+      z-index: 1;
+    }
+
+    .tt-agency-service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #FFD700, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .tt-agency-service-card.tt-active::before {
+      opacity: 1;
+    }
+
+    /* Card Content */
+    .tt-agency-service-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .tt-agency-service-icon {
+      font-size: 3rem;
+      margin-right: 20px;
+      background: linear-gradient(135deg, #FFD700, #DAA520);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .tt-agency-service-card.tt-active .tt-agency-service-icon {
+      transform: scale(1.1);
+    }
+
+    .tt-agency-service-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      transition: color 0.3s ease;
+    }
+
+    .tt-agency-service-card.tt-active .tt-agency-service-name {
+      color: #FFD700;
+    }
+
+    .tt-agency-service-description {
+      font-size: 1rem;
+      color: #cccccc;
+      line-height: 1.7;
+      font-weight: 300;
+      opacity: 0.9;
+      transition: color 0.3s ease;
+    }
+
+    .tt-agency-service-card.tt-active .tt-agency-service-description {
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    .tt-agency-carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(218, 165, 32, 0.2);
+      border: 1px solid rgba(218, 165, 32, 0.4);
+      color: #FFD700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      z-index: 20;
+    }
+
+    .tt-agency-carousel-nav:hover {
+      background: rgba(255, 215, 0, 0.3);
+      border-color: #FFD700;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .tt-agency-carousel-nav.tt-prev {
+      left: 2px;
+    }
+
+    .tt-agency-carousel-nav.tt-next {
+      right: 2px;
+    }
+
+    /* Indicators */
+    .tt-agency-carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .tt-agency-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(218, 165, 32, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tt-agency-indicator.tt-active {
+      background: #FFD700;
+      transform: scale(1.2);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .tt-agency-services-section {
+        padding: 80px 20px;
+      }
+
+      .tt-agency-carousel-wrapper {
+        height: 400px;
+      }
+
+      .tt-agency-service-card {
+        width: 300px;
+        height: 380px;
+        padding: 30px 25px;
+      }
+
+      .tt-agency-service-card.tt-prev {
+        transform: translateX(-150px) scale(0.7) translateZ(0);
+      }
+
+      .tt-agency-service-card.tt-next {
+        transform: translateX(150px) scale(0.7) translateZ(0);
+      }
+
+      .tt-agency-service-icon {
+        font-size: 2.5rem;
+        margin-right: 15px;
+      }
+
+      .tt-agency-service-name {
+        font-size: 1.2rem;
+      }
+
+      .tt-agency-service-description {
+        font-size: 0.9rem;
+      }
+
+      .tt-agency-carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .tt-agency-carousel-nav.tt-prev {
+        left: -20px;
+      }
+
+      .tt-agency-carousel-nav.tt-next {
+        right: -20px;
+      }
+    }
+
+</style>
+<body>
+  <!-- Background -->
+  <div class="animated-bg">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">TERENCE <span>&</span> THEODORE</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Navigation -->
+      <nav class="nav-mobile">
+        <button class="mobile-menu-btn">☰</button>
+        <div class="mobile-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="models.html">Models</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">WE TURN YOUR<br>POTENTIAL INTO<br>SUCCESS</h1>
+      <p class="hero-subtitle">Elite Model Management & Career Development</p>
+    </div>
+  </section>
+
+  <section class="about-content fade-in">
+    <div class="about-container">
+      <div class="about-text">
+        <div class="about-highlight">Working with Terence & Theodore</div>
+        <h2 class="about-title">WE UNITE TALENT<br>WITH OPPORTUNITY</h2>
+        <p class="about-description">
+          We're a team of industry experts who know how to market, manage, and elevate your modeling career. Our comprehensive approach ensures that every aspect of your professional journey is meticulously crafted for maximum impact.
+        </p>
+        <p class="about-description">
+          From runway to editorial, commercial to luxury brands, we help our models realize their full potential in the fashion industry. Our commitment to excellence has made us the trusted choice for both emerging and established talent.
+        </p>
+      </div>
+      <div class="about-visual">
+        <div class="stat-card">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Elite Models</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Brand Partnerships</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+    <section class="tt-agency-services-section">
+      <div class="tt-agency-services-header">
+        <h2 class="tt-agency-services-title">HOW WE ELEVATE<br>YOUR CAREER</h2>
+        <p class="tt-agency-services-subtitle">Our comprehensive services</p>
+      </div>
+
+      <div class="tt-agency-carousel-container">
+        <div class="tt-agency-carousel-wrapper">
+          <div class="tt-agency-service-card tt-active">
+            <div class="tt-agency-service-header">
+              <div class="tt-agency-service-icon">📸</div>
+              <h3 class="tt-agency-service-name">Portfolio<br>Development</h3>
+            </div>
+            <p class="tt-agency-service-description">Professional photography sessions with top photographers to create stunning portfolios that showcase your unique style and versatility across multiple genres.</p>
+          </div>
+          
+          <div class="tt-agency-service-card tt-hidden">
+            <div class="tt-agency-service-header">
+              <div class="tt-agency-service-icon">🎯</div>
+              <h3 class="tt-agency-service-name">Brand<br>Positioning</h3>
+            </div>
+            <p class="tt-agency-service-description">Strategic positioning to align your image with premium brands and exclusive opportunities in fashion, ensuring maximum market impact and recognition.</p>
+          </div>
+          
+          <div class="tt-agency-service-card tt-hidden">
+            <div class="tt-agency-service-header">
+              <div class="tt-agency-service-icon">⭐</div>
+              <h3 class="tt-agency-service-name">Career<br>Management</h3>
+            </div>
+            <p class="tt-agency-service-description">Comprehensive career planning and management to ensure sustained growth and success in modeling, with personalized strategies for each stage of your journey.</p>
+          </div>
+          
+          <div class="tt-agency-service-card tt-hidden">
+            <div class="tt-agency-service-header">
+              <div class="tt-agency-service-icon">🤝</div>
+              <h3 class="tt-agency-service-name">Industry<br>Connections</h3>
+            </div>
+            <p class="tt-agency-service-description">Access to our extensive network of photographers, designers, and industry professionals worldwide, opening doors to exclusive opportunities and collaborations.</p>
+          </div>
+          
+          <div class="tt-agency-service-card tt-hidden">
+            <div class="tt-agency-service-header">
+              <div class="tt-agency-service-icon">💼</div>
+              <h3 class="tt-agency-service-name">Contract<br>Negotiation</h3>
+            </div>
+            <p class="tt-agency-service-description">Expert negotiation to secure the best terms and rates for your modeling contracts and partnerships, ensuring fair compensation and favorable conditions.</p>
+          </div>
+          
+          <div class="tt-agency-service-card tt-hidden">
+            <div class="tt-agency-service-header">
+              <div class="tt-agency-service-icon">📱</div>
+              <h3 class="tt-agency-service-name">Digital<br>Presence</h3>
+            </div>
+            <p class="tt-agency-service-description">Strategic social media management and digital marketing to build your personal brand online, creating engaging content that resonates with your audience.</p>
+          </div>
+
+          <button class="tt-agency-carousel-nav tt-prev" onclick="ttAgencyChangeSlide(-1)">‹</button>
+          <button class="tt-agency-carousel-nav tt-next" onclick="ttAgencyChangeSlide(1)">›</button>
+        </div>
+
+        <div class="tt-agency-carousel-indicators" id="ttAgencyIndicators"></div>
+      </div>
+    </section>
+
+
+  <footer class="fade-in">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">TERENCE <span>&</span> THEODORE</a>
+        <p class="footer-tagline">Premium Model Management</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Apply Now</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-copyright">
+        © 2024 Terence & Theodore. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+   <script>
+  // Cursor functionality (unchanged)
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+  let followerX = 0, followerY = 0;
+
+  const cursor = document.querySelector('.cursor');
+  const follower = document.querySelector('.cursor-follower');
+
+  let ticking = false;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!ticking) {
+      requestAnimationFrame(updateCursor);
+      ticking = true;
+    }
+  });
+
+  function updateCursor() {
+    cursorX += (mouseX - cursorX) * 0.9;
+    cursorY += (mouseY - cursorY) * 0.9;
+
+    followerX += (mouseX - followerX) * 0.15;
+    followerY += (mouseY - followerY) * 0.15;
+
+    cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+    follower.style.transform = `translate(${followerX - 15}px, ${followerY - 15}px)`;
+
+    ticking = false;
+  }
+
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    follower.style.opacity = '0.6';
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    follower.style.opacity = '0';
+  });
+
+  // Fade-in animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ============================
+  // Carousel Functionality FIXED
+  // ============================
+    let ttAgencyCurrentSlide = 0;
+    const ttAgencyCards = document.querySelectorAll('.tt-agency-service-card');
+    const ttAgencyTotalCards = ttAgencyCards.length;
+    const ttAgencyIndicatorsContainer = document.getElementById('ttAgencyIndicators');
+
+    // Create indicators
+    function ttAgencyCreateIndicators() {
+      for (let i = 0; i < ttAgencyTotalCards; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'tt-agency-indicator';
+        if (i === 0) indicator.classList.add('tt-active');
+        indicator.addEventListener('click', () => ttAgencyGoToSlide(i));
+        ttAgencyIndicatorsContainer.appendChild(indicator);
+      }
+    }
+
+    // Update indicators
+    function ttAgencyUpdateIndicators() {
+      const indicators = document.querySelectorAll('.tt-agency-indicator');
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('tt-active', index === ttAgencyCurrentSlide);
+      });
+    }
+
+    // Position cards based on current slide
+    function ttAgencyPositionCards() {
+      ttAgencyCards.forEach((card, index) => {
+        card.classList.remove('tt-active', 'tt-prev', 'tt-next', 'tt-hidden');
+        
+        if (index === ttAgencyCurrentSlide) {
+          card.classList.add('tt-active');
+        } else if (index === ttAgencyCurrentSlide - 1 || 
+                  (ttAgencyCurrentSlide === 0 && index === ttAgencyTotalCards - 1)) {
+          card.classList.add('tt-prev');
+        } else if (index === ttAgencyCurrentSlide + 1 || 
+                  (ttAgencyCurrentSlide === ttAgencyTotalCards - 1 && index === 0)) {
+          card.classList.add('tt-next');
+        } else {
+          card.classList.add('tt-hidden');
+        }
+      });
+    }
+
+    // Go to specific slide
+    function ttAgencyGoToSlide(slideIndex) {
+      ttAgencyCurrentSlide = slideIndex;
+      ttAgencyPositionCards();
+      ttAgencyUpdateIndicators();
+    }
+
+    // Change slide (circular)
+    function ttAgencyChangeSlide(direction) {
+      ttAgencyCurrentSlide += direction;
+      
+      // Make it circular
+      if (ttAgencyCurrentSlide < 0) {
+        ttAgencyCurrentSlide = ttAgencyTotalCards - 1;
+      } else if (ttAgencyCurrentSlide >= ttAgencyTotalCards) {
+        ttAgencyCurrentSlide = 0;
+      }
+      
+      ttAgencyGoToSlide(ttAgencyCurrentSlide);
+    }
+
+    // Touch support
+    let ttAgencyTouchStartX = 0;
+    let ttAgencyTouchEndX = 0;
+
+    document.querySelector('.tt-agency-carousel-wrapper').addEventListener('touchstart', (e) => {
+      ttAgencyTouchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.querySelector('.tt-agency-carousel-wrapper').addEventListener('touchend', (e) => {
+      ttAgencyTouchEndX = e.changedTouches[0].screenX;
+      ttAgencyHandleSwipe();
+    });
+
+    function ttAgencyHandleSwipe() {
+      const swipeThreshold = 50;
+      const diff = ttAgencyTouchStartX - ttAgencyTouchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          ttAgencyChangeSlide(1); // Swipe left, go to next
+        } else {
+          ttAgencyChangeSlide(-1); // Swipe right, go to previous
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        ttAgencyChangeSlide(-1);
+      } else if (e.key === 'ArrowRight') {
+        ttAgencyChangeSlide(1);
+      }
+    });
+
+    // Initialize
+    ttAgencyCreateIndicators();
+    ttAgencyPositionCards();
+  </script>
+
+</body>
+</html>

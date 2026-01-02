@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terence & Theodore - Model Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+ <div class="animated-bg">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">TERENCE <span>&</span> THEODORE</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="index.html" >Home</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Navigation -->
+      <nav class="nav-mobile">
+        <button class="mobile-menu-btn">☰</button>
+        <div class="mobile-menu">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="models.html">Models</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">UNLOCK<br>YOUR<br>POTENTIAL</h1>
+      <p class="hero-subtitle">Premium Model Management</p>
+      <a href="models.html" class="hero-cta">Discover Talent</a>
+    </div>
+  </section>
+
+  <section class="numbers fade-in">
+    <div class="numbers-content">
+      <div class="number-item">
+        <div class="number">150+</div>
+        <div class="number-label">Elite Models</div>
+      </div>
+      <div class="number-item">
+        <div class="number">25</div>
+        <div class="number-label">Years Experience</div>
+      </div>
+      <div class="number-item">
+        <div class="number">500+</div>
+        <div class="number-label">Brand Campaigns</div>
+      </div>
+      <div class="number-item">
+        <div class="number">50+</div>
+        <div class="number-label">Magazine Covers</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="models fade-in">
+    <div class="models-header">
+      <h2 class="models-title">FEATURED<br>TALENT</h2>
+      <p class="models-subtitle">Our Elite Portfolio</p>
+    </div>
+    <div class="models-grid">
+      <div class="model-card">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop&crop=face" alt="Alexandra" class="model-image" />
+        <div class="model-overlay">
+          <h3 class="model-name">Alexandra</h3>
+          <p class="model-info">International Fashion Model</p>
+        </div>
+      </div>
+      <div class="model-card">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=face" alt="David" class="model-image" />
+        <div class="model-overlay">
+          <h3 class="model-name">David</h3>
+          <p class="model-info">Commercial & Editorial Model</p>
+        </div>
+      </div>
+      <div class="model-card">
+        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&h=800&fit=crop&crop=face" alt="Irina" class="model-image" />
+        <div class="model-overlay">
+          <h3 class="model-name">Irina</h3>
+          <p class="model-info">Runway & Luxury Brand Model</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="fade-in">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">TERENCE <span>&</span> THEODORE</a>
+        <p class="footer-tagline">Premium Model Management</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Apply Now</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-copyright">
+        © 2024 Terence & Theodore. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Optimized cursor tracking with throttling
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+
+    // Throttled mouse tracking
+    let ticking = false;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      if (!ticking) {
+        requestAnimationFrame(updateCursor);
+        ticking = true;
+      }
+    });
+
+    function updateCursor() {
+      cursorX += (mouseX - cursorX) * 0.9;
+      cursorY += (mouseY - cursorY) * 0.9;
+      
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+      
+      cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+      follower.style.transform = `translate(${followerX - 15}px, ${followerY - 15}px)`;
+      
+      ticking = false;
+    }
+
+    // Show cursor on mouse enter
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity = '1';
+      follower.style.opacity = '0.6';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+      follower.style.opacity = '0';
+    });
+
+    // Optimized Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, observerOptions);
+
+    // Observe fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Optimized scroll handling with throttling
+    let scrollTicking = false;
+    
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          // Add any scroll-based animations here if needed
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    });
+
+       // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    // Optimized cursor tracking with throttling (desktop only)
+    if (window.innerWidth > 768) {
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let followerX = 0, followerY = 0;
+
+      const cursor = document.querySelector('.cursor');
+      const follower = document.querySelector('.cursor-follower');
+
+      let ticking = false;
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        if (!ticking) {
+          requestAnimationFrame(updateCursor);
+          ticking = true;
+        }
+      });
+
+      function updateCursor() {
+        cursorX += (mouseX - cursorX) * 0.9;
+        cursorY += (mouseY - cursorY) * 0.9;
+        
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        
+        cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+        follower.style.transform = `translate(${followerX - 15}px, ${followerY - 15}px)`;
+        
+        ticking = false;
+      }
+
+      // Show cursor on mouse enter
+      document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+        follower.style.opacity = '0.6';
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        follower.style.opacity = '0';
+      });
+    }
+
+  </script>
+</body>
+</html>

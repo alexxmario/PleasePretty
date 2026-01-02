@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Terence & Theodore Model Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background -->
+  <div class="animated-bg">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="logo">TERENCE <span>&</span> THEODORE</a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Navigation -->
+      <nav class="nav-mobile">
+        <button class="mobile-menu-btn">☰</button>
+        <div class="mobile-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="models.html">Models</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="contact-hero-content">
+        <h1 class="contact-title">GET IN<br>TOUCH</h1>
+        <p class="contact-subtitle">Start Your Journey</p>
+        <p class="contact-description">
+          Ready to launch your modeling career or book exceptional talent? We're here to connect you with opportunities that transform dreams into reality. Let's create something extraordinary together.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-form-section fade-in">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          
+          <div class="info-item">
+            <div class="info-label">Agency Address</div>
+            <div class="info-text">
+              123 Fashion Boulevard<br>
+              New York, NY 10001<br>
+              United States
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Phone</div>
+            <div class="info-text">
+              <a href="tel:+1234567890">+1 (234) 567-8900</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Email</div>
+            <div class="info-text">
+              <a href="mailto:info@terencetheodore.com">info@terencetheodore.com</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Business Hours</div>
+            <div class="info-text">
+              Monday - Friday: 9:00 AM - 6:00 PM<br>
+              Saturday: 10:00 AM - 4:00 PM<br>
+              Sunday: Closed
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Casting Inquiries</div>
+            <div class="info-text">
+              <a href="mailto:casting@terencetheodore.com">casting@terencetheodore.com</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3 class="form-title">Submit Your Inquiry</h3>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name <span class="required">*</span></label>
+              <input type="text" id="firstName" name="firstName" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="lastName" name="lastName" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="age">Age</label>
+              <input type="number" id="age" name="age" class="form-input" min="16" max="65">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="inquiryType">Inquiry Type <span class="required">*</span></label>
+              <select id="inquiryType" name="inquiryType" class="form-select" required>
+                <option value="">Select inquiry type</option>
+                <option value="model-application">Model Application</option>
+                <option value="casting-booking">Casting & Booking</option>
+                <option value="brand-collaboration">Brand Collaboration</option>
+                <option value="general-inquiry">General Inquiry</option>
+                <option value="media-press">Media & Press</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="height">Height (cm)</label>
+              <input type="number" id="height" name="height" class="form-input" placeholder="e.g. 175">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="location">Location</label>
+              <input type="text" id="location" name="location" class="form-input" placeholder="City, State/Country">
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="experience">Experience Level</label>
+            <select id="experience" name="experience" class="form-select">
+              <option value="">Select experience level</option>
+              <option value="beginner">Beginner (0-1 years)</option>
+              <option value="intermediate">Intermediate (2-5 years)</option>
+              <option value="experienced">Experienced (5+ years)</option>
+              <option value="professional">Professional Model</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about yourself, your goals, or your inquiry. Include any relevant details about your modeling experience, interests, or specific requirements." required></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" for="portfolio">Portfolio/Photos (Optional)</label>
+            <div class="file-upload">
+              <input type="file" id="portfolio" name="portfolio" accept="image/*,application/pdf" multiple>
+              <label for="portfolio" class="file-upload-label">
+                <div class="file-upload-text">
+                  <div class="upload-icon">📎</div>
+                  <div>Click to upload photos or PDF portfolio</div>
+                  <div style="font-size: 0.8rem; color: #999;">Max 10MB per file, JPG/PNG/PDF accepted</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="consent" name="consent" class="checkbox-input" required>
+            <label for="consent" class="checkbox-label">
+              I consent to the processing of my personal data and agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>. I understand that submitted photos may be used for evaluation purposes. <span class="required">*</span>
+            </label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="marketing" name="marketing" class="checkbox-input">
+            <label for="marketing" class="checkbox-label">
+              I would like to receive updates about casting opportunities, industry news, and promotional content from Terence & Theodore Model Agency.
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fade-in">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">TERENCE <span>&</span> THEODORE</a>
+        <p class="footer-tagline">Premium Model Management</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Apply Now</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-copyright">
+        © 2024 Terence & Theodore. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor tracking
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+
+    let ticking = false;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      if (!ticking) {
+        requestAnimationFrame(updateCursor);
+        ticking = true;
+      }
+    });
+
+    function updateCursor() {
+      cursorX += (mouseX - cursorX) * 0.9;
+      cursorY += (mouseY - cursorY) * 0.9;
+      
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+      
+      cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+      follower.style.transform = `translate(${followerX - 15}px, ${followerY - 15}px)`;
+      
+      ticking = false;
+    }
+
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity = '1';
+      follower.style.opacity = '0.6';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+      follower.style.opacity = '0';
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // File upload feedback
+    const fileInput = document.getElementById('portfolio');
+    const fileLabel = document.querySelector('.file-upload-label');
+    
+    fileInput.addEventListener('change', function() {
+      const files = this.files;
+      if (files.length > 0) {
+        const fileNames = Array.from(files).map(file => file.name).join(', ');
+        fileLabel.innerHTML = `
+          <div class="file-upload-text">
+            <div class="upload-icon">✓</div>
+            <div>Files selected: ${files.length}</div>
+            <div style="font-size: 0.8rem; color: #FFD700;">${fileNames.length > 50 ? fileNames.substring(0, 50) + '...' : fileNames}</div>
+          </div>
+        `;
+        fileLabel.style.borderColor = '#DAA520';
+        fileLabel.style.color = '#FFD700';
+      }
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+      
+      submitBtn.textContent = 'SUBMITTING...';
+      submitBtn.disabled = true;
+      
+      // Simulate form submission
+      setTimeout(() => {
+        submitBtn.textContent = 'MESSAGE SENT!';
+        submitBtn.style.background = 'linear-gradient(135deg, #28a745, #34d058)';
+        
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          submitBtn.style.background = 'linear-gradient(135deg, #DAA520 0%, #FFD700 50%, #B8860B 100%)';
+          this.reset();
+          
+          // Reset file upload display
+          fileLabel.innerHTML = `
+            <div class="file-upload-text">
+              <div class="upload-icon">📎</div>
+              <div>Click to upload photos or PDF portfolio</div>
+              <div style="font-size: 0.8rem; color: #999;">Max 10MB per file, JPG/PNG/PDF accepted</div>
+            </div>
+          `;
+          fileLabel.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+          fileLabel.style.color = '#cccccc';
+        }, 2000);
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
